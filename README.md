@@ -39,7 +39,7 @@ Follow these instructions to get the project up and running on your local machin
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone <https://github.com/AyaanHyder07/project-2.git>
     ```
 2.  **Open the Backend Project:**
     Navigate to the backend folder and open it in your favorite IDE (like IntelliJ IDEA or VS Code).
