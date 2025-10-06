@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import apiClient from '../../api/apiClient';
+import styles from './AdminDashboard.module.css';
 
 const AdminDashboard = () => {
   const [orders, setOrders] = useState([]);
@@ -18,28 +19,30 @@ const AdminDashboard = () => {
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
-  return (
-    <div>
-      <h2>Live Orders</h2>
-      <div className="orders-list">
-        {orders.map(order => (
-          <div key={order.id} className="order-card">
-            <h3>Order #{order.id} - Table: {order.tableNumber}</h3>
-            <p><strong>Customer:</strong> {order.customerName} ({order.customerPhone})</p>
-            <p><strong>Time:</strong> {new Date(order.orderTime).toLocaleTimeString()}</p>
-            <ul>
-              {order.items.map(item => (
-                <li key={item.id}>
-                  {item.quantity} x {item.menuItem.name}
-                </li>
-              ))}
-            </ul>
-            {order.notes && <p><strong>Notes:</strong> {order.notes}</p>}
-          </div>
-        ))}
-      </div>
+// AdminDashboard.jsx return statement
+
+return (
+  <div>
+    <h2>Live Orders</h2>
+    <div className={styles.ordersList}> {/* Corrected: orders-list -> ordersList */}
+      {orders.map(order => (
+        <div key={order.id} className={styles.orderCard}> {/* Corrected: order-card -> orderCard */}
+          <h3>Order #{order.id} - Table: {order.tableNumber}</h3>
+          <p><strong>Customer:</strong> {order.customerName} ({order.customerPhone})</p>
+          <p><strong>Time:</strong> {new Date(order.orderTime).toLocaleTimeString()}</p>
+          <ul>
+            {order.items.map(item => (
+              <li key={item.id}>
+                {item.quantity} x {item.menuItem.name}
+              </li>
+            ))}
+          </ul>
+          {order.notes && <p><strong>Notes:</strong> {order.notes}</p>}
+        </div>
+      ))}
     </div>
-  );
+  </div>
+);
 };
 
 export default AdminDashboard;

@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+.container h1 {
+  font-size: 3em;
+  color: var(--primary-color);
+}
+.container p {
+  font-size: 1.2em;
+}
+.homeLink {
+  margin-top: 30px;
+  padding: 12px 25px;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+}

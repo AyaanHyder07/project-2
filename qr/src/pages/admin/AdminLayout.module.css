@@ -1,0 +1,21 @@
+.adminHeader {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.adminHeader h1 { color: white; margin: 0; }
+.adminHeader nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+.adminHeader nav a.active {
+  opacity: 1;
+  text-decoration: underline;
+}
+.main { padding: 20px; }

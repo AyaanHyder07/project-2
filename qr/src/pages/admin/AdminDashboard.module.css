@@ -1,0 +1,13 @@
+.ordersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+.orderCard {
+  background: var(--card-background);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  padding: 15px;
+  border-top: 5px solid var(--secondary-color);
+}
+.orderCard ul { list-style: none; padding-left: 10px; }

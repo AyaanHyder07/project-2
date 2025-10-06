@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import apiClient from '../../api/apiClient';
+import styles from './AdminMenuManagement.module.css';
 
 const AdminMenuManagementPage = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -57,56 +58,60 @@ const AdminMenuManagementPage = () => {
     setCurrentItem({ name: '', description: '', price: '', category: '' });
   };
 
-  return (
-    <div>
-      <h2>Menu Management</h2>
-      <div className="menu-form-container">
-        <h3>{isEditing ? 'Edit Menu Item' : 'Add New Menu Item'}</h3>
-        <form onSubmit={handleSubmit}>
-          <input type="text" name="name" value={currentItem.name} onChange={handleInputChange} placeholder="Name" required />
-          <input type="text" name="category" value={currentItem.category} onChange={handleInputChange} placeholder="Category" required />
-          <textarea name="description" value={currentItem.description} onChange={handleInputChange} placeholder="Description" required />
-          <input type="number" name="price" value={currentItem.price} onChange={handleInputChange} placeholder="Price" step="0.01" required />
-          <button type="submit">{isEditing ? 'Update Item' : 'Add Item'}</button>
-          {isEditing && <button type="button" onClick={resetForm}>Cancel</button>}
-        </form>
-      </div>
+// AdminMenuManagementPage.jsx return statement
 
-      <div className="menu-table-container">
-        <h3>Existing Items</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Price</th>
-              <th>Available</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {menuItems.map(item => (
-              <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>{item.category}</td>
-                <td>${item.price.toFixed(2)}</td>
-                <td>
-                  <label className="switch">
-                    <input type="checkbox" checked={item.available} onChange={() => toggleAvailability(item.id)} />
-                    <span className="slider round"></span>
-                  </label>
-                </td>
-                <td>
-                  <button onClick={() => handleEdit(item)}>Edit</button>
-                  <button onClick={() => handleDelete(item.id)}>Delete</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+return (
+  <div>
+    <h2>Menu Management</h2>
+    <div className={styles.formContainer}> {/* Corrected and Renamed */}
+      <h3>{isEditing ? 'Edit Menu Item' : 'Add New Menu Item'}</h3>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="name" value={currentItem.name} onChange={handleInputChange} placeholder="Name" required />
+        <input type="text" name="category" value={currentItem.category} onChange={handleInputChange} placeholder="Category" required />
+        <textarea name="description" value={currentItem.description} onChange={handleInputChange} placeholder="Description" required />
+        <input type="number" name="price" value={currentItem.price} onChange={handleInputChange} placeholder="Price" step="0.01" required />
+        <button type="submit">{isEditing ? 'Update Item' : 'Add Item'}</button>
+        {isEditing && <button type="button" onClick={resetForm}>Cancel</button>}
+      </form>
     </div>
-  );
+
+    <div className={styles.tableContainer}> {/* Corrected */}
+      <h3>Existing Items</h3>
+      <table>
+        {/* Table Head stays the same */}
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Available</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {menuItems.map(item => (
+            <tr key={item.id}>
+              <td>{item.name}</td>
+              <td>{item.category}</td>
+              <td>${item.price.toFixed(2)}</td>
+              <td>
+                {/* The switch CSS is complex, this structure works with the provided CSS */}
+                <label className="switch">
+                  <input type="checkbox" checked={item.available} onChange={() => toggleAvailability(item.id)} />
+                  <span className="slider round"></span>
+                </label>
+              </td>
+              <td>
+                <button onClick={() => handleEdit(item)}>Edit</button>
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
 };
 
 export default AdminMenuManagementPage;

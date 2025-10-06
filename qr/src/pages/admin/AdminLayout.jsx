@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+// 👇 All imports from 'react-router-dom' are combined into this single line
+import { Outlet, NavLink } from 'react-router-dom';
+import styles from './AdminLayout.module.css';
 
 const AdminLayout = () => {
   return (
-    <div className="admin-container">
-      <header className="admin-header">
+    <div className={styles.adminContainer}>
+      <header className={styles.adminHeader}>
         <h1>SH Cafe - Admin Panel</h1>
         <nav>
-          <Link to="/admin/dashboard">Dashboard</Link>
-          <Link to="/admin/menu-management">Menu Management</Link>
+          <NavLink to="/admin/dashboard">Dashboard</NavLink>
+          <NavLink to="/admin/menu-management">Menu Management</NavLink>
         </nav>
       </header>
-      <main>
-        <Outlet /> {/* Child routes will be rendered here */}
+      <main className={styles.main}>
+        <Outlet />
       </main>
     </div>
   );

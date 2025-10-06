@@ -1,0 +1,184 @@
+.container {
+  padding: 15px;
+}
+
+/* Inside src/pages/customer/MenuPage.module.css */
+
+.pageHeader {
+  background: var(--primary-color);
+  color: white;
+  padding: 20px;
+  border-radius: 0 0 30px 30px; /* Rounds the bottom corners */
+  text-align: center;
+  margin: 0 -15px 30px -15px; /* Stretches banner edge-to-edge on mobile */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.pageHeader h1 {
+  font-family: 'Pacifico', cursive; /* Our new logo font */
+  font-size: 3em;
+  margin: 0;
+  font-weight: 400; /* Cursive fonts don't need to be bold */
+}
+
+/* This styles the container for the "Table" pill */
+.tableInfo {
+  display: flex;
+  justify-content: center;
+  margin-top: -45px; /* Pulls the pill up onto the banner */
+  position: relative; /* Ensures it sits on top */
+  margin-bottom: 30px;
+}
+
+/* This styles the "Table" pill itself */
+.tableInfo p {
+  background: var(--secondary-color);
+  color: var(--text-color);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  border: 3px solid white;
+  margin: 0;
+}
+
+.categorySection h2 {
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--secondary-color);
+  margin-top: 30px;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile first: one column */
+  gap: 15px;
+}
+
+.menuItemCard {
+  background: var(--card-background);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menuItemCard h3 {
+  margin-top: 0;
+  color: var(--text-color);
+}
+.price {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.addBtn, .quantityControl button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.quantityControl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.quantityControl button {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  line-height: 1;
+}
+.quantityControl span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cartFab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.modalContent {
+  background: var(--background-color);
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+.orderSummary ul {
+  list-style: none;
+  padding: 0;
+}
+.orderSummary li, .totalPrice {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.totalPrice {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.modalContent form input, .modalContent form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+}
+.modalActions button:first-child {
+  background-color: #ccc;
+  flex-grow: 1;
+}
+.modalActions button:last-child {
+  flex-grow: 2;
+}
+
+/* For tablets and larger screens */
+@media (min-width: 768px) {
+  .menuGrid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+  }
+}
+
+/* For desktops */
+@media (min-width: 1024px) {
+  .menuGrid {
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+  }
+}
