@@ -5,7 +5,7 @@ import ThankYouPage from './pages/customer/ThankYouPage';
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminMenuManagementPage from './pages/admin/AdminMenuManagementPage';
-import './index.css'; // Assuming you have some global styles
+import PrintPage from './pages/admin/PrintPage'; // 1. Import the new page
 
 function App() {
   return (
@@ -14,12 +14,15 @@ function App() {
         {/* Customer Routes */}
         <Route path="/" element={<MenuPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
-
+        
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="menu-management" element={<AdminMenuManagementPage />} />
         </Route>
+
+        {/* 2. Add the new route for our printable bill */}
+        <Route path="/print" element={<PrintPage />} />
       </Routes>
     </Router>
   );

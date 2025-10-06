@@ -1,0 +1,45 @@
+.billContainer {
+  width: 300px; /* Standard receipt width */
+  padding: 15px;
+  font-family: 'Courier New', Courier, monospace; /* Classic receipt font */
+  color: #000;
+  background: #fff;
+}
+
+.header, .footer {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.header h2 { margin: 0; }
+
+.details p {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.itemsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+.itemsTable th, .itemsTable td {
+  text-align: left;
+  padding: 5px 0;
+  border-bottom: 1px dashed #ccc;
+}
+.itemsTable th:last-child, .itemsTable td:last-child {
+  text-align: right;
+}
+
+.totals {
+  text-align: right;
+  margin-top: 15px;
+}
+.totals p {
+  margin: 5px 0;
+}
+.grandTotal {
+  font-size: 1.2em;
+  border-top: 1px solid #000;
+  padding-top: 5px;
+}
